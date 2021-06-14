@@ -1,5 +1,5 @@
 # Programmers# Programmers
-이 레포는 프로그래머스 연습문제를 푼 자료와 함께, 제가 풀며 배운 알고리즘 스킬들을 기록해 놓는 곳입니다.
+이 Repo는 프로그래머스 연습문제를 푼 자료와 함께, 제가 풀며 배운 알고리즘 스킬들을 기록해 놓는 곳입니다.
 
 ## 2진수 관련 코드
 
@@ -85,6 +85,77 @@ ex) a = '1001'
  3. findall() : 정규식과 매치되는 모든 문자열을 리스트로 돌려준다.
  4. finditer() : 정규식과 매치되는 모든 문자열을 반복 가능한 객체로 돌려준다.
  
+ re모듈의 사용을 위해선 re라이브러리를 import 해준뒤, 표현식을 compile해주어야 한다.
+ 
+```
+>>> import re
+>>> p = re.compile('[a-z]+')
+```
  
  #### match()
- 
+ match 메서드는 문자열이의 처음부터 정규식과 매치되는지를 조사한다.
+ ```
+>>> m = p.match("python")
+>>> print(m)
+<_sre.SRE_Match object at 0x01F3F9F8>
+```
+
+"python" 문자열은 [a-z]+ 정규식에 부합하므로, match 객체가 반환된다.
+
+```
+>>> m = p.match("3 python")
+>>> print(m)
+None
+```
+
+"3 python" 문자열은 처음에 오는 3이 정규식에 부합되지 않으므로 None 객체가 반환된다.
+이러한 match의 특성을 이용해 보통 if else문에 사용되는데, 사용방법은 아래와 같다.
+
+```
+p = re.compile(정규표현식)
+m = p.match( 'string goes here' )
+if m:
+    print('Match found: ', m.group())
+else:
+    print('No match')
+```
+
+#### search()
+search 메서드는 문자열을 처음부터 검색하는 것이 아닌, 전체를 검색하는 메서드이다.
+
+```
+>>> m = p.search("3 python")
+>>> print(m)
+<_sre.SRE_Match object at 0x01F3FA68>
+```
+
+"3 python"은 3이 앞에 오지만, search는 match와 다르게 문자열 전체를 검색하므로,
+뒤에 오는 "python"이 이 정규표현식을 만족시키므로 매치된다.
+
+#### findall()
+findall 메서드는 문자열의 띄어쓰기를 분리하여, 리스트로 돌려주는 메서드이다.
+
+```
+>>> result = p.findall("life is too short")
+>>> print(result)
+['life', 'is', 'too', 'short']
+```
+
+위와 같이 문장으로 된 문자열을 각각 [a-z]+ 문자열과 매칭하여 리스트로 돌려준다.
+
+#### finditer()
+이번에는 finditer 메서드를 수행해 보자.
+
+```
+>>> result = p.finditer("life is too short")
+>>> print(result)
+<callable_iterator object at 0x01F5E390>
+>>> for r in result: print(r)
+...
+<_sre.SRE_Match object at 0x01F3F9F8>
+<_sre.SRE_Match object at 0x01F3FAD8>
+<_sre.SRE_Match object at 0x01F3FAA0>
+<_sre.SRE_Match object at 0x01F3F9F8>
+```
+finditer는 findall과 동일하지만 그 결과로 반복 가능한 객체를 돌려준다.
+"life" "is" "too" "short"를 각각 반복가능한 객체로, r에 대입하여 매치되는지를 확인할 수 있다.
