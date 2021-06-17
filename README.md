@@ -3,11 +3,23 @@
 이 레포는 프로그래머스 연습문제를 푼 자료와 함께, 문제를 풀며 배운 알고리즘 스킬들을 기록해 놓는 곳입니다.
 
 ## 리스트 처리 코드
+### 리스트의 데이터타입을 바꿔주는 map()
+```
+>>> n = ['1','2','3']
+>>> n = list(map(int, n))
+n = [1,2,3]
+```
+### 리스트가 비었는지 확인해주는 not()
+```
+>>> a= []
+>>> not(a)
+True
+```
 ### 리스트를 sorted를 사용하여 key를 기준으로 정렬하기
 어떠한 기준으로 리스트를 정렬하여야 할때, sorted메서드의 key를 이용하면 쉽게 정렬할 수 있다.
 abe, abc, cxc를 2번째 글자를 기준으로 정렬 할 경우,
 ```
->>>sorted(strings,key=lambda x:x[n])
+>>> sorted(strings,key=lambda x:x[n])
 [abe, abc, cxc]
 ```
 이렇게 하면 2번째 글자를 기준으로 정렬을 알아서 해준다.
@@ -15,14 +27,14 @@ abe, abc, cxc를 2번째 글자를 기준으로 정렬 할 경우,
 만약 두가지 기준을 가진 정렬의 경우, 예를들어 2번째 글자를 기준후로 정렬후, 2번째 글자가 같은 문자열은 사전순으로 정렬 하여야 하는경우, lambda의 조건을 하나 더 두면 알아서 첫번째 기준으로 정렬 후 두번째 기준으로 정렬해준다.
 
 ```
->>>sorted(strings,key=lambda x:(x[n],x))
+>>> sorted(strings,key=lambda x:(x[n],x))
 [abc, abe, cxc]
 ```
 ## 수학 관련 코드
 ### 최대공약수를 구해주는 gcd()
 fractions 라이브러리에 있는 gcd() 메서드는 두 매개변수의 최대공약수를 구해준다.
 ```
->>>gcd(3,12)
+>>> gcd(3,12)
 3
 ```
 ### 유클리드 호제법
@@ -33,11 +45,11 @@ ex) 1071과 1029의 최대공약수를 구하면,
     42는 21로 나누어떨어진다.
 
 ```
->>>c, d = max(a, b), min(a, b)
+>>> c, d = max(a, b), min(a, b)
 >>> t = 1
->>>while t > 0:
-    t = c % d
-    c, d = d, t
+>>> while t > 0:
+        t = c % d
+        c, d = d, t
 ```
 ### 최소공배수
 a와 b의 최공배수는 a*b를 최대공약수로 나눈것이다.
@@ -45,13 +57,13 @@ a와 b의 최공배수는 a*b를 최대공약수로 나눈것이다.
 
 ### 에라토스테네스의 체
 ```
-def solution(n):
-    num=set(range(2,n+1))
+>>> def solution(n):
+        num=set(range(2,n+1))
 
-    for i in range(2,n+1):
-        if i in num:
-            num-=set(range(i*i,n+1,i))
-    return len(num)
+        for i in range(2,n+1):
+            if i in num:
+                num-=set(range(i*i,n+1,i))
+        return len(num)
     
 ```
 
@@ -60,15 +72,15 @@ def solution(n):
 변수를 외부로 부터 입력받고 싶을 때는 input()을 쓴다.
 만약 a를 입력으로 받고싶다면,
 ```
->>>a = input()
+>>> a = input()
 ```
 위와 같이 하면된다.
 ## 2진수 관련 코드
 
 ### 라이브러리 사용없이 변환하기
 ```
-tmp = ''
-    while i:
+>>> tmp = ''
+>>> while i:
         tmp += str(i % n)
         i = i // n
 
@@ -76,15 +88,21 @@ tmp = ''
 
 ### 10진수를 2진수로 변환하여 string문자열로 변환
 ```
-bin(num) 
+>>> bin(num) 
 
 ```
 
 ## 문자열 처리
+### 문자열 맨 앞글자를 대문자로 바꿔주는 capitalize()
+```
+>>> s = 'abc'
+>>> s.capitalize()
+'Abc'
+```
 ### 문자열의 데이터타입을 바꿔주는 map()
 ```
 >>> n = "12345"
->>>map(int, n)
+>>> map(int, n)
 n = 12345
 ```
 
@@ -92,8 +110,8 @@ n = 12345
 
 ex) 
 ```
->>>s = "123"
->>>s.isdigit()
+>>> s = "123"
+>>> s.isdigit()
 True
 
 ```
@@ -101,12 +119,12 @@ True
 ### 공백을 채우는 rjust
 만약, 두개의 수를 받고싶다면,
 ```
->>>a,b = input()
+>>> a,b = input()
 ```
 이고, 입력은 ab이렇게 원하는 수를 붙여서 대입한다. 만약 입력방식은 a b이렇게 중간이나 
 왼쪽, 오른쪽에 공백을 두어도 알아서 대입하기를 원한다면,
 ```
->>>a,b = input().strip().split()
+>>> a,b = input().strip().split()
 
 ```
 이렇게 코드를 짜주면, 들어온값의 양쪽공백을 제거(strip())하고, 
@@ -193,12 +211,12 @@ None
 이러한 match의 특성을 이용해 보통 if else문에 사용되는데, 사용방법은 아래와 같다.
 
 ```
-p = re.compile(정규표현식)
-m = p.match( 'string goes here' )
-if m:
-    print('Match found: ', m.group())
-else:
-    print('No match')
+>>> p = re.compile(정규표현식)
+>>> m = p.match( 'string goes here' )
+>>> if m:
+        print('Match found: ', m.group())
+    else:
+        print('No match')
 ```
 
 #### search()
