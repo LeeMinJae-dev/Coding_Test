@@ -278,3 +278,17 @@ finditer는 findall과 동일하지만 그 결과로 반복 가능한 객체를 
 "life" "is" "too" "short"를 각각 반복가능한 객체로, r에 대입하여 매치되는지를 확인할 수 있다.
 >>>>>>> 4a4668306fe1caa36a54eaafb6dc2d27e00fc3d5
 
+#### split()
+split() 메서드는 정규표현식을 기준으로 문자를 나눠주는 메서드이다.
+
+```
+>>> re.split('[0-9]+','python3hello')
+['python','hello']
+```
+기준으로 나눈 문자도 포함하고 싶다면 ( )를 정규표현씩에 씌워주면 된다. 
+```
+>>> re.split('[0-9]+','python3hello')
+['python','3,'hello']
+
+
+
