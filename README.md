@@ -1,6 +1,29 @@
 
 # Programmers
 이 레포는 프로그래머스 연습문제를 푼 자료와 함께, 문제를 풀며 배운 알고리즘 스킬들을 기록해 놓는 곳입니다.
+## 함수 사용법
+
+### for ~ else 문
+for else 문은 for문이 break에 걸리지 않았을 때는 else가 실행되고, break에 걸려서
+for문을 탈출하게 되면 else가 실행되지 않는 함수이다.
+```
+>>>for x in range(4):
+    if x == 2:
+        print ('loop out')
+        break
+    else:
+        print ('loop end')
+```
+break에 걸렸으므로 else가 실행되지 않아 loop out이 실행되고,
+```
+for x in range(4):
+  # nop
+  pass
+else:
+  print ('loop end')
+
+```
+break가 없으므로 else가 실행되어 loop end가 출력된다.
 
 ## 리스트 처리 코드
 ### 리스트의 데이터타입을 바꿔주는 map()
