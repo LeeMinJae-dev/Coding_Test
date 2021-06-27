@@ -353,3 +353,22 @@ most_common은 가장 개수가 많은, 즉 밸류의 값이 높은 원소를 �
 [(2, 3)]
 ```
 most_common의 매개변수를 1로 하면 가장 밸류가 높은 원소 하나, 2로 하면 두개가 출력된다.
+
+#### collections.defaultdict()
+defaultdict()는 딕셔너리에 없는 키값을 호출할때 오류가 발생하는 것을 막아주기 위해 호출한 키값이 없으면 알아서 패스해주는 딕셔너리를 선언하게 해주는 메서드이다.
+```
+>>> dic = collections.defaultdict(int)
+>>> dic
+defaultdict(int, {})
+
+>>> dic['a'] 
+>>> dic
+defaultdict(int, {'a': 0})
+
+>>> dic['b'] = 1
+>>> dic
+defaultdict(int, {'a': 0, 'b': 1})
+
+```
+defaultdic()의 인자로 int를 주면 키값만을 호출했을때 0을 밸류로 저장하고,
+list로 주면 빈리스트인 [ ], set()을 주면 빈 집합인 {}로 저장해준다.
