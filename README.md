@@ -2,7 +2,17 @@
 # Coding_Test
 이 레포는 코딩테스트 연습문제들을 푼 자료와 함께, 문제를 풀며 배운 알고리즘 스킬들을 기록해 놓는 곳입니다.
 ## 함수 사용법
-
+### try, except 문
+try, except문은 예외나 오류를 처리하는데, 이를 이용해서 입력이 끝날때까지
+값을 받는 방식으로 코딩을 할 수 있다.
+```
+>>>while 1:
+        try:
+            i = input()
+        except:
+            break
+    
+```
 ### for ~ else 문
 for else 문은 for문이 break에 걸리지 않았을 때는 else가 실행되고, break에 걸려서
 for문을 탈출하게 되면 else가 실행되지 않는 함수이다.
@@ -198,6 +208,11 @@ mx = sys.maxsize #최댓값
 mx = -sys.maxsize #최솟값
 
 ```
+
+#### for문에서 input() 대신 사용하는 sys.stdin.readline()
+for 문에서는 input()을 사용하여 입력을 받으면 시간초과가 일어날 수 있기 때문에,
+input 대신에 stdin.readline()을 사용해야 한다.
+
 ### import re
 #### 문자 클래스 []
 문자 클래스 []는 "[]사이의 문자들과 매치"라는 의미이다.
