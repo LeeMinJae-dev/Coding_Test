@@ -1,0 +1,10 @@
+Greedy
+Dynamic
+DFS, BFS
+Dijkstra
+Priority Queue
+Two Pointer
+Stack, Queue
+Recursion
+Hashing
+Regular Expression
