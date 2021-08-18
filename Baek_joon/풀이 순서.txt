@@ -1,5 +1,7 @@
 Greedy
+    silver 1
 Dynamic
+    silver 1
 DFS, BFS
 Dijkstra
 Priority Queue
