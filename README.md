@@ -12,6 +12,8 @@ try, except문은 예외나 오류를 처리하는데, 이를 이용해서 입�
         except:
             break
     
+    
+    
 ```
 ### for ~ else 문
 for else 문은 for문이 break에 걸리지 않았을 때는 else가 실행되고, break에 걸려서
